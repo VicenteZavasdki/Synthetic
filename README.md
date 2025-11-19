@@ -28,3 +28,39 @@ Continue building your app on:
 2. Deploy your chats from the v0 interface
 3. Changes are automatically pushed to this repository
 4. Vercel deploys the latest version from this repository
+
+## Cloudflare Deployment
+
+This project uses `@cloudflare/next-on-pages` to deploy Next.js to Cloudflare Pages.
+
+### Prerequisites
+
+1.  **Cloudflare Account**: You need a Cloudflare account.
+2.  **Wrangler CLI**: The project includes `wrangler` as a dev dependency, but you can also install it globally.
+
+### Local Development
+
+To preview the application as it would run on Cloudflare:
+
+\`\`\`bash
+npm run pages:preview
+\`\`\`
+
+### Deployment
+
+To deploy to Cloudflare Pages:
+
+1.  **Build the application:**
+    \`\`\`bash
+    npm run pages:build
+    \`\`\`
+
+2.  **Deploy:**
+    \`\`\`bash
+    npm run pages:deploy
+    \`\`\`
+
+### Configuration
+
+-   **Compatibility Flags**: Ensure your Cloudflare Pages project has the `nodejs_compat` compatibility flag enabled.
+-   **Environment Variables**: Set your environment variables in the Cloudflare Pages dashboard.
