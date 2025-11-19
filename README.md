@@ -31,23 +31,27 @@ Continue building your app on:
 
 ## Cloudflare Deployment
 
-This project is configured to be deployed as a Cloudflare Worker with Assets (or Cloudflare Pages).
+This project is configured to be deployed as a Cloudflare Worker with Assets.
 
-### Automatic Deployment
+### For Cloudflare Dashboard (Workers & Pages)
 
-The `build` script has been updated to automatically generate the Cloudflare Worker compatible output.
+When setting up deployment in the Cloudflare dashboard, use these settings:
 
-1. **Build**:
-   \`\`\`bash
-   npm run build
-   \`\`\`
-   This will run `next build` followed by `@cloudflare/next-on-pages` to generate the `.vercel/output/static` directory.
+- **Build Command**: `npx @cloudflare/next-on-pages`
+- **Build Output Directory**: `.vercel/output/static`
 
-2. **Deploy**:
-   \`\`\`bash
-   npx wrangler deploy
-   \`\`\`
-   This will deploy the worker and assets defined in `wrangler.toml`.
+The `@cloudflare/next-on-pages` command will automatically run `next build` first, then convert the output for Cloudflare Workers.
+
+### Manual Deployment from CLI
+
+\`\`\`bash
+# Build the Next.js app first
+npm run build
+
+# Then build and deploy with Cloudflare
+npm run pages:build
+npx wrangler deploy
+\`\`\`
 
 ### Local Development
 
@@ -59,5 +63,5 @@ npm run pages:preview
 
 ### Configuration
 
--   **Compatibility Flags**: The `wrangler.toml` file automatically sets the `nodejs_compat` flag.
--   **Environment Variables**: Set your environment variables in the Cloudflare dashboard or `.dev.vars` for local development.
+- **Compatibility Flags**: The `wrangler.toml` file automatically sets the `nodejs_compat` flag.
+- **Environment Variables**: Set your environment variables in the Cloudflare dashboard or `.dev.vars` for local development.
