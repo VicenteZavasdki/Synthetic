@@ -64,3 +64,4 @@ To deploy to Cloudflare Pages:
 
 -   **Compatibility Flags**: Ensure your Cloudflare Pages project has the `nodejs_compat` compatibility flag enabled.
 -   **Environment Variables**: Set your environment variables in the Cloudflare Pages dashboard.
+-   **Wrangler Configuration**: A `wrangler.toml` file is included to handle compatibility flags and build output settings automatically.
